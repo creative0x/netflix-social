@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ["www.edigitalagency.com.au"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
