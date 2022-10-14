@@ -2,8 +2,14 @@ import React from "react";
 import Head from "next/head";
 import Sidebar from "../components/social/Sidebar";
 import Feed from "../components/social/Feed";
+import { getProviders, getSession, useSession } from "next-auth/react";
+import Login from "../components/social/Login";
 
-export default function social() {
+export default function social({ providers }) {
+  const { data: session } = useSession();
+
+  // if no session return the login componenet
+  if (!session) return <Login providers={providers} />;
   return (
     <div>
       <Head>
@@ -15,9 +21,23 @@ export default function social() {
       <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar />
         <Feed />
+
         {/* Widgets */}
         {/* modal */}
       </main>
     </div>
   );
+}
+
+// api requests are rendered server side
+export async function getServerSideProps(context) {
+  const providers = await getProviders();
+  const session = await getSession(context);
+
+  return {
+    props: {
+      providers,
+      session,
+    },
+  };
 }
