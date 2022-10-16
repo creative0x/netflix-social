@@ -11,11 +11,13 @@ export const authOptions = {
   ],
   callbacks: {
     async session({ session, token }) {
+      // create user tag from user name
       session.user.tag = session.user.name
         .split(" ")
         .join("")
         .toLocaleLowerCase();
 
+      // create uid from token
       session.user.uid = token.sub;
       return session;
     },

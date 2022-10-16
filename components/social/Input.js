@@ -17,6 +17,7 @@ import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import React, { useRef, useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function Input() {
   const [input, setInput] = useState("");
@@ -26,6 +27,9 @@ export default function Input() {
 
   // Providing a reference to another element
   const filePickerRef = useRef(null);
+
+  // load the session to get the image
+  const { data: session } = useSession();
 
   // adds emoji into input field
   const addEmoji = (e) => {
@@ -40,11 +44,12 @@ export default function Input() {
     if (loading) return;
     setLoading(true);
 
+    // Whats going to get sent over to the database
     const docRef = await addDoc(collection(db, "posts"), {
-      // id: session.user.uid,
-      // username: session.user.name,
-      // userImg: session.user.image,
-      // tag: session.user.tag,
+      id: session.user.uid,
+      username: session.user.name,
+      userImg: session.user.image,
+      tag: session.user.tag,
       text: input,
       timestamp: serverTimestamp(),
     });
@@ -84,7 +89,7 @@ export default function Input() {
       }`}
     >
       <img
-        src="https://i.stack.imgur.com/34AD2.jpg"
+        src={session.user.image}
         alt=""
         className="h-11 w-11 rounded-full cursor-pointer"
       />

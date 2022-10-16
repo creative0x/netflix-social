@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 
 export default function Login({ providers }) {
   return (
-    <div className="flex flex-col items-center  pt-52">
+    <div className="flex flex-col items-center  pt-[15em]">
       <Image
         src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
         width={300}
