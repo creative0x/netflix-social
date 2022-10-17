@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-black;
+    @apply bg-[#111];
   }
 }
 
@@ -15,5 +15,8 @@
   }
   .icon {
     @apply cursor-pointer w-9 h-9 hover:bg-[#E20910] hover:bg-opacity-10 flex items-center justify-center rounded-full transition ease-out;
+  }
+  .headerLink {
+    @apply cursor-pointer text-sm text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3];
   }
 }
