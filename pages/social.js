@@ -4,9 +4,13 @@ import Sidebar from "../components/social/Sidebar";
 import Feed from "../components/social/Feed";
 import { getProviders, getSession, useSession } from "next-auth/react";
 import Login from "../components/social/Login";
+import PostModal from "../components/social/PostModal";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atoms/modalAtom";
 
 export default function social({ providers }) {
   const { data: session } = useSession();
+  const [isOpen, setIsOpen] = useRecoilState(modalState);
 
   // if no session return the login componenet
   if (!session) return <Login providers={providers} />;
@@ -23,7 +27,8 @@ export default function social({ providers }) {
         <Feed />
 
         {/* Widgets */}
-        {/* modal */}
+
+        {isOpen && <PostModal />}
       </main>
     </div>
   );

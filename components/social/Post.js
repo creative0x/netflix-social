@@ -41,6 +41,19 @@ export default function Post({ id, post, postPage }) {
   const [flamed, setFlamed] = useState(false);
   const router = useRouter();
 
+  // get all comments from firebase and sort by time
+  useEffect(
+    () =>
+      onSnapshot(
+        query(
+          collection(db, "posts", id, "comments"),
+          orderBy("timestamp", "desc")
+        ),
+        (snapshot) => setComments(snapshot.docs)
+      ),
+    [db, id]
+  );
+
   //   fetch likes from firebase
   useEffect(
     () =>
@@ -156,8 +169,9 @@ export default function Post({ id, post, postPage }) {
           alt=""
           className="rounded-2xl max-h-[700px] object-cover mr-2 "
         />
+
         <div
-          className={`text-[#6e767d] flex justify-between w-10/12 ${
+          className={`text-[#6e767d] flex justify-between w-[50%] ${
             postPage && "mx-auto"
           }`}
         >
@@ -235,9 +249,9 @@ export default function Post({ id, post, postPage }) {
           >
             <div className="icon group-hover:bg-red-600/10">
               {flamed ? (
-                <FireIcon className="h-5 text-red-500" />
+                <FireIconFilled className="h-5 text-red-500" />
               ) : (
-                <FireIconFilled className="h-5 group-hover:text-red-500" />
+                <FireIcon className="h-5 group-hover:text-red-500" />
               )}
             </div>
             {/* if the number of likes is greater than zero then display likes */}
