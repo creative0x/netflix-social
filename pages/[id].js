@@ -73,7 +73,7 @@ export default function PostPage({ providers }) {
             </div>
             Post
           </div>
-          <Post id={id} post={post} postPage />
+          <Post id={id} post={post} />
           {comments.length > 0 && (
             <div className="pb-72 ">
               {comments.map((comment) => (
