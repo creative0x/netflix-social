@@ -16,7 +16,7 @@ export default function Home({ trendingNow, results }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="relative  pb-24  pt-[6rem]">
+      <main className="relative  pb-4  pt-[6rem]">
         <Banner trendingNow={trendingNow} />
         <section>
           <CatMenu />
