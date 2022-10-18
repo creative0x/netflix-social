@@ -53,7 +53,7 @@ function Modal() {
     setIsOpen(false);
     setComment("");
 
-    router.push(`/${postId}`);
+    router.push(`/social/${postId}`);
   };
 
   return (

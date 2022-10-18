@@ -9,17 +9,17 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { modalState } from "../atoms/modalAtom";
-import PostModal from "../components/social/PostModal";
-import Sidebar from "../components/social/Sidebar";
+import { modalState } from "../../atoms/modalAtom";
+import PostModal from "../../components/social/PostModal";
+import Sidebar from "../../components/social/Sidebar";
 // import Widgets from "../components/social/Widgets";
-import Post from "../components/social/Post";
-import { db } from "../firebase";
+import Post from "../../components/social/Post";
+import { db } from "../../firebase";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 // import Comment from "../components/social/Comment";
 import Head from "next/head";
-import Login from "../components/social/Login";
-import Comment from "../components/social/Comment";
+import Login from "../../components/social/Login";
+import Comment from "../../components/social/Comment";
 
 export default function PostPage({ providers }) {
   const { data: session } = useSession();
