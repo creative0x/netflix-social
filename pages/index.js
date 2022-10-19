@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-
+import { getProducts } from "@stripe/firestore-stripe-payments";
 import Header from "../components/interface/Header";
 import Banner from "../components/interface/Banner";
 import requests from "../utils/requests";
@@ -11,15 +11,16 @@ import { useRecoilValue } from "recoil";
 import { movieModalState } from "../atoms/modalAtom";
 import Modal from "../components/interface/Modal";
 import Plans from "../components/interface/Plans";
+import payments from "../lib/stripe";
 
-export default function Home({ trendingNow, results }) {
+export default function Home({ trendingNow, results, products }) {
   const { loading } = useAuth;
   const showModal = useRecoilValue(movieModalState);
   const subscription = false;
 
   // If user does not have a subscription show them the plans
   if (loading || subscription === null) return null;
-  if (!subscription) return <Plans />;
+  if (!subscription) return <Plans products={products} />;
 
   return (
     <div className="relative h-screen  bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
@@ -42,6 +43,13 @@ export default function Home({ trendingNow, results }) {
 }
 
 export const getServerSideProps = async (context) => {
+  const products = await getProducts(payments, {
+    includePrices: true,
+    activeOnly: true,
+  })
+    .then((res) => res)
+    .catch((error) => console.log(error.message));
+
   const genre = context.query.genre;
   const request = await fetch(
     requests[genre]?.url || requests.fetchTrending.url
@@ -56,6 +64,7 @@ export const getServerSideProps = async (context) => {
     horrorMovies,
     romanceMovies,
     documentaries,
+
     // one await promise for all fetch requests
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals.url).then((res) => res.json()),
@@ -79,6 +88,7 @@ export const getServerSideProps = async (context) => {
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
       results: request.results,
+      products,
     },
   };
 };

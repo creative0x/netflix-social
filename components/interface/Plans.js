@@ -3,8 +3,9 @@ import Head from "next/head";
 import Link from "next/link";
 import useAuth from "../../hooks/useAuth";
 import { CheckIcon } from "@heroicons/react/outline";
+import Table from "./Table";
 
-export default function Plans() {
+export default function Plans({ products }) {
   const { logout } = useAuth();
 
   return (
@@ -32,7 +33,7 @@ export default function Plans() {
         </button>
       </header>
 
-      <main className="pt-28">
+      <main className="pt-28 max-w-5xl px-5 pb-12 transition-all md:px-10">
         <h1 className="mb-3 text-3xl font-medium">
           Choose the plan that&apos;s right for you
         </h1>
@@ -51,8 +52,15 @@ export default function Plans() {
           </li>
         </ul>
 
-        <div className="flex w-full">
-          <div></div>
+        <div className="mt-4 flex flex-col space-y-4">
+          <div className="flex w-full items-center self-end justify-center md:w-3/5">
+            {products.map((product) => (
+              <div key={product.id} className="planBox">
+                {product.name}
+              </div>
+            ))}
+          </div>
+          <Table />
         </div>
       </main>
     </div>
