@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "gradient-to-b":
-          "linear-gradient(to bottom,rgba(20,20,20,0) 0,rgba(20,20,20,.15) 15%,rgba(20,20,20,.35) 29%,rgba(20,20,20,.58) 44%,#111111 68%,#111111 100%);",
+          "linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,.15) 15%,rgba(0,0,0,.35) 29%,rgba(0,0,0,.58) 44%,#111111 68%,#010101 100%);",
       },
     },
   },

@@ -11,8 +11,11 @@
   "dependencies": {
     "@emoji-mart/data": "^1.0.6",
     "@emoji-mart/react": "^1.0.1",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^1.0.6",
+    "@mui/material": "^5.10.10",
     "emoji-mart": "^5.2.2",
     "firebase": "^9.12.1",
     "moment": "^2.29.4",

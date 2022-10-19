@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
+import Link from "next/link";
 
-export default function signup() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Login() {
   const [login, setLogin] = useState(false);
+  const { signIn, signUp } = useAuth();
+
   const {
     register,
     handleSubmit,
-
+    watch,
     formState: { errors },
-    // eslint-disable-next-line react-hooks/rules-of-hooks
   } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async ({ email, password }) => {
     if (login) {
-      // await signIn(email, password)
-    } else {
-      // await signup(email, password)
+      await signIn(email, password);
     }
   };
 
@@ -42,7 +41,7 @@ export default function signup() {
           height={200}
           className=""
         />
-        <h3 className="font-[500] my-10 md:text-xl md:my-12">Log in</h3>
+        <h3 className="font-[500] my-10 md:text-xl md:my-12">Sign in</h3>
         <label>
           <input
             type="email"
@@ -73,15 +72,15 @@ export default function signup() {
         <button
           onClick={() => setLogin(true)}
           className="bg-[#E6020C] px-[85px] md:px-[110px] py-1 mt-8 text-sm  md:mt-12 font-[500] rounded-full md:text-lg"
+          type="submit"
         >
-          Log in
+          Sign in
         </button>
         <p className="font-light mt-4 md:text-lg">I forgot my password</p>
 
         <Link href="/signup">
           <button
             onClick={() => setLogin(false)}
-            type="submit"
             className="bg-[#E6020C] px-[85px] py-1 mt-16 text-sm font-[500] rounded-full md:text-lg md:px-[105px] md:mb-24"
           >
             Sign up

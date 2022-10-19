@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
+import Link from "next/link";
 
-export default function signup() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Login() {
   const [login, setLogin] = useState(false);
+  const { signIn, signUp } = useAuth();
+
   const {
     register,
     handleSubmit,
-
+    watch,
     formState: { errors },
-    // eslint-disable-next-line react-hooks/rules-of-hooks
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async ({ email, password }) => {
+    await signUp(email, password);
+  };
 
   return (
     <div className="bg-black md:bg-black relative flex justify-center items-center h-screen w-screen flex-col md:items-center md:justify-center md:bg-transparent caret-transparent ">
@@ -64,7 +67,10 @@ export default function signup() {
           )}
         </label>
 
-        <button className="bg-[#E6020C] px-[85px] md:px-[105px] py-1 mt-8 text-sm  md:mt-12 font-[500] rounded-full md:text-lg">
+        <button
+          onClick={() => setLogin(true)}
+          className="bg-[#E6020C] px-[85px] md:px-[110px] py-1 mt-8 text-sm  md:mt-12 font-[500] rounded-full md:text-lg"
+        >
           Sign up
         </button>
         <p className="font-light mt-4 md:text-lg">I forgot my password</p>
@@ -72,9 +78,9 @@ export default function signup() {
         <Link href="/login">
           <button
             type="submit"
-            className="bg-[#E6020C] px-[85px] py-1 mt-16 text-sm font-[500] rounded-full md:text-lg md:px-[110px] md:mb-24"
+            className="bg-[#E6020C] px-[85px] py-1 mt-16 text-sm font-[500] rounded-full md:text-lg md:px-[105px] md:mb-24"
           >
-            Log in
+            Sign in
           </button>
         </Link>
       </form>
