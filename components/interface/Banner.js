@@ -26,16 +26,16 @@ export default function Banner({ trendingNow }) {
         />
       </div>
 
-      <div className="ml-20 space-y-4">
+      <div className="ml-10 md:ml-20 space-y-4">
         <h1 className="text-2xl font-bold md:text-4xl lg:text-7xl text-shadow-md ">
           {movie?.title || movie?.name || movie?.orginal_name}
         </h1>
-        <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
+        <p className="max-w-xs text-shadow-md text-lg md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
           {movie?.overview}
         </p>
       </div>
 
-      <div className="flex space-x-6 ml-20">
+      <div className="flex space-x-6 ml-10 md:ml-20">
         <button
           onClick={() => {
             setCurrentMovie(movie);
@@ -43,11 +43,11 @@ export default function Banner({ trendingNow }) {
           }}
           className="bannerBtn bg-[#E20910] transition duration-100 transform hover:scale-105"
         >
-          <FaPlay className="h-2 w-2 md:h-4 md:w-4" />
+          <FaPlay className="h-3 w-3 md:h-4 md:w-4" />
           Watch
         </button>
         <button className="bannerBtn bg-[#111] border border-gray-800 transition duration-100 transform hover:scale-105">
-          <FaUserFriends className="h-2 w-2 md:h-4 md:w-4" /> Watch w/ Friends
+          <FaUserFriends className="h-3 w-3 md:h-4 md:w-4" /> Watch w/ Friends
         </button>
       </div>
     </div>
