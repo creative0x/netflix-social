@@ -12,11 +12,13 @@ import { movieModalState } from "../atoms/modalAtom";
 import Modal from "../components/interface/Modal";
 import Plans from "../components/interface/Plans";
 import payments from "../lib/stripe";
+import useSubscription from "../hooks/useSubscription";
 
 export default function Home({ trendingNow, results, products }) {
-  const { loading } = useAuth;
+  const { loading, user } = useAuth();
   const showModal = useRecoilValue(movieModalState);
-  const subscription = false;
+  // sets the subscription
+  const subscription = useSubscription(user);
 
   // If user does not have a subscription show them the plans
   if (loading || subscription === null) return null;

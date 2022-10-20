@@ -28,10 +28,12 @@ export default function login() {
           alt=""
           className=""
         />
-        <div className="flex items-center space-x-4 cursor-pointer transition duration-100 transform hover:scale-105">
-          <p className="font-[500]">Sign in</p>
-          <FaUserAlt className="text-red-600" />
-        </div>
+        <Link href="/login">
+          <div className="flex items-center space-x-4 cursor-pointer transition duration-100 transform hover:scale-105">
+            <p className="font-[500]">Sign in</p>
+            <FaUserAlt className="text-red-600" />
+          </div>
+        </Link>
       </div>
 
       <div className="text-center space-y-10 px-10 text-[#d6d6d6]">
