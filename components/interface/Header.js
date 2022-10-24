@@ -36,7 +36,7 @@ export default function Header() {
           width={100}
           height={100}
         />
-        <ul className="hidden space-x-4 md:flex">
+        {/* <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">Home</li>
           <li className="headerLink">TV Shows</li>
           <li className="headerLink">Movies</li>
@@ -45,7 +45,7 @@ export default function Header() {
           <Link href="/social">
             <li className="headerLink">*NEW* Social</li>
           </Link>
-        </ul>
+        </ul> */}
       </div>
 
       <div className="flex items-center space-x-4 text-sm">

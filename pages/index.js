@@ -13,6 +13,8 @@ import Modal from "../components/interface/Modal";
 import Plans from "../components/interface/Plans";
 import payments from "../lib/stripe";
 import useSubscription from "../hooks/useSubscription";
+import TopMenu from "../components/interface/TopMenu";
+import TopRequests from "../utils/requestsTop";
 
 export default function Home({ trendingNow, results, products }) {
   const { loading, user } = useAuth();
@@ -35,6 +37,7 @@ export default function Home({ trendingNow, results, products }) {
       <main className="relative  pb-4  pt-[6rem]">
         <Banner trendingNow={trendingNow} />
         <section>
+          <TopMenu />
           <CatMenu />
           <Movies results={results} />
         </section>
@@ -54,7 +57,8 @@ export const getServerSideProps = async (context) => {
 
   const genre = context.query.genre;
   const request = await fetch(
-    requests[genre]?.url || requests.fetchTrending.url
+    // removed  requests.fetchTrending.url || because genre can come from the category or top request object
+    requests[genre]?.url || TopRequests[genre]?.url
   ).then((res) => res.json());
 
   const [
@@ -69,9 +73,9 @@ export const getServerSideProps = async (context) => {
 
     // one await promise for all fetch requests
   ] = await Promise.all([
-    fetch(requests.fetchNetflixOriginals.url).then((res) => res.json()),
-    fetch(requests.fetchTrending.url).then((res) => res.json()),
-    fetch(requests.fetchTopRated.url).then((res) => res.json()),
+    fetch(TopRequests.fetchNetflixOriginals.url).then((res) => res.json()),
+    fetch(TopRequests.fetchTrending.url).then((res) => res.json()),
+    fetch(TopRequests.fetchTopRated.url).then((res) => res.json()),
     fetch(requests.fetchActionMovies.url).then((res) => res.json()),
     fetch(requests.fetchComedyMovies.url).then((res) => res.json()),
     fetch(requests.fetchHorrorMovies.url).then((res) => res.json()),
