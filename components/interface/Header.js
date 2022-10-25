@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     // if scrolled change the background color of the header
-    <header className={`${isScrolled && "bg-[#111] z-[100]"}`}>
+    <header className={`${isScrolled && " z-[100]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"

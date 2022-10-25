@@ -20,7 +20,7 @@ export default function TopMenu() {
     setOriginalsBtn(false);
     setTrendingBtn(true);
     // router.push(`/?genre=fetchTrending`); use push state so page doesn't refresh after router push. Applied to all buttons in menu
-    window.history.pushState(null, "Trending", "/?genre=fetchTrending");
+    window.history.pushState(null, "Trending", "/?top=fetchTrending");
   };
   const popularHandleClick = () => {
     setPopularBtn(true);
@@ -28,7 +28,7 @@ export default function TopMenu() {
     setOriginalsBtn(false);
     setTrendingBtn(false);
     // router.push(`/?genre=fetchTopRated`);
-    window.history.pushState(null, "Most Popular", "/?genre=fetchTopRated");
+    window.history.pushState(null, "Most Popular", "/?top=fetchTopRated");
   };
   const addedHandleclick = () => {
     setPopularBtn(false);
@@ -36,7 +36,7 @@ export default function TopMenu() {
     setOriginalsBtn(false);
     setTrendingBtn(false);
     // router.push(`/?genre=fetchLatest`);
-    window.history.pushState(null, "Recently Added", "/?genre=fetchLatest");
+    window.history.pushState(null, "Recently Added", "/?top=fetchLatest");
   };
   const originalsHandleclick = () => {
     setPopularBtn(false);
@@ -44,21 +44,16 @@ export default function TopMenu() {
     setOriginalsBtn(true);
     setTrendingBtn(false);
     // router.push(`/?genre=fetchNetflixOriginals`);
-    window.history.pushState(
-      null,
-      "Originals",
-      "/?genre=fetchNetflixOriginals"
-    );
+    window.history.pushState(null, "Originals", "/?top=fetchNetflixOriginals");
   };
 
   return (
     <div className="mt-10">
-      <ul className="flex justify-between  border-y border-gray-500  text-lg cursor-pointer hover:font-medium text-center ">
+      <ul className="flex justify-between  border-y border-gray-500  text-lg   text-center ">
         <li
-          className=" flex items-center  justify-center w-full  hover:bg-[red] py-4 gap-x-2"
+          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold py-4 gap-x-2 cursor-pointer"
           style={{
-            backgroundColor: trendingBtn ? "red" : "",
-            fontWeight: trendingBtn ? "500" : "",
+            color: trendingBtn ? "red" : "",
           }}
           onClick={trendingHandleClick}
         >
@@ -66,10 +61,9 @@ export default function TopMenu() {
           <BiTrendingUp className="text-4xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full  hover:bg-[red] py-4 gap-x-2"
+          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold  py-4 gap-x-2 cursor-pointer"
           style={{
-            backgroundColor: popularBtn ? "red" : "",
-            fontWeight: popularBtn ? "500" : "",
+            color: popularBtn ? "red" : "",
           }}
           onClick={popularHandleClick}
         >
@@ -77,20 +71,18 @@ export default function TopMenu() {
           <GoFlame className="text-3xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full  hover:bg-[red] py-4 gap-x-2"
+          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold  py-4 gap-x-2 cursor-pointer"
           style={{
-            backgroundColor: addedBtn ? "red" : "",
-            fontWeight: addedBtn ? "500" : "",
+            color: addedBtn ? "red" : "",
           }}
           onClick={addedHandleclick}
         >
           {requests.fetchLatest.title} <VscDiffAdded className="text-3xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full  hover:bg-[red] py-4 gap-x-2"
+          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold  py-4 gap-x-2 cursor-pointer"
           style={{
-            backgroundColor: originalsBtn ? "red" : "",
-            fontWeight: originalsBtn ? "500" : "",
+            color: originalsBtn ? "red" : "",
           }}
           onClick={originalsHandleclick}
         >

@@ -15,8 +15,9 @@ import payments from "../lib/stripe";
 import useSubscription from "../hooks/useSubscription";
 import TopMenu from "../components/interface/TopMenu";
 import TopRequests from "../utils/requestsTop";
+import Row from "../components/interface/Row";
 
-export default function Home({ trendingNow, results, products }) {
+export default function Home({ trendingNow, results, products, topResults }) {
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(movieModalState);
   // sets the subscription
@@ -38,6 +39,7 @@ export default function Home({ trendingNow, results, products }) {
         <Banner trendingNow={trendingNow} />
         <section>
           <TopMenu />
+          <Row topResults={topResults} />
           <CatMenu />
           <Movies results={results} />
         </section>
@@ -56,9 +58,14 @@ export const getServerSideProps = async (context) => {
     .catch((error) => console.log(error.message));
 
   const genre = context.query.genre;
+  const top = context.query.top;
+
   const request = await fetch(
-    // removed  requests.fetchTrending.url || because genre can come from the category or top request object
-    requests[genre]?.url || TopRequests[genre]?.url
+    requests[genre]?.url || requests.fetchActionMovies.url
+  ).then((res) => res.json());
+
+  const TopRequest = await fetch(
+    TopRequests[top]?.url || TopRequests.fetchTrending.url
   ).then((res) => res.json());
 
   const [
@@ -94,6 +101,7 @@ export const getServerSideProps = async (context) => {
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
       results: request.results,
+      topResults: TopRequest.results,
       products,
     },
   };

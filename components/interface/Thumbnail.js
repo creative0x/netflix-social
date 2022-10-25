@@ -9,7 +9,7 @@ export default function Thumbnail({ result }) {
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
   return (
     <div
-      className="cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 p-6"
+      className="cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 p-4"
       onClick={() => {
         setCurrentMovie(result);
         setShowModal(true);
