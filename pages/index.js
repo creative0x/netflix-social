@@ -8,7 +8,7 @@ import Movies from "../components/interface/Movies";
 import CatMenu from "../components/interface/CatMenu";
 import useAuth from "../hooks/useAuth";
 import { useRecoilValue } from "recoil";
-import { movieModalState } from "../atoms/modalAtom";
+import { movieModalState, movieState } from "../atoms/modalAtom";
 import Modal from "../components/interface/Modal";
 import Plans from "../components/interface/Plans";
 import payments from "../lib/stripe";
@@ -16,6 +16,7 @@ import useSubscription from "../hooks/useSubscription";
 import TopMenu from "../components/interface/TopMenu";
 import TopRequests from "../utils/requestsTop";
 import Row from "../components/interface/Row";
+import useList from "../hooks/useList";
 
 export default function Home({ trendingNow, results, products, topResults }) {
   const { loading, user } = useAuth();
@@ -39,7 +40,7 @@ export default function Home({ trendingNow, results, products, topResults }) {
         <Banner trendingNow={trendingNow} />
         <section>
           <TopMenu />
-          <Row topResults={topResults} />
+          <Row title="Top Results" topResults={topResults} />
           <CatMenu />
           <Movies results={results} />
         </section>

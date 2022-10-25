@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 
-export default function useList(uid) {
-  const [list, setList] = useState([]);
+export default function useRecommendedList(uid) {
+  const [recommendedList, setRecommendedList] = useState([]);
   useEffect(() => {
     if (!uid) return;
     return onSnapshot(
-      collection(db, "customers", uid, "watchLater"),
+      collection(db, "customers", uid, "recommended"),
       (snapshot) => {
-        setList(
+        setRecommendedList(
           snapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
@@ -18,5 +18,5 @@ export default function useList(uid) {
       }
     );
   }, [db, uid]);
-  return list;
+  return recommendedList;
 }

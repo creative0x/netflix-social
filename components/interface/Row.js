@@ -2,7 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import React, { useRef, useState } from "react";
 import TopThumbnail from "./TopThumbnail";
 
-export default function Row({ topResults }) {
+export default function Row({ title, topResults }) {
   const rowRef = useRef(null);
   const [isMoved, setIsMoved] = useState(false);
 

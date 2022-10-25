@@ -30,12 +30,16 @@ export default function Header() {
     // if scrolled change the background color of the header
     <header className={`${isScrolled && " opacity-0 z-[100]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
-          alt=""
-          width={100}
-          height={100}
-        />
+        <Link href="/">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
+            alt=""
+            width={100}
+            height={100}
+            className="cursor-pointer"
+          />
+        </Link>
+
         {/* <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">Home</li>
           <li className="headerLink">TV Shows</li>

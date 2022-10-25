@@ -9,9 +9,9 @@ export default function SocialHeader() {
           alt=""
           className="cursor-pointer rounded w-32"
         />
-        <h1 className="p-5 font-semibold text-3xl">Alice Wonderland</h1>
+        <h1 className="p-2 font-semibold text-3xl">Alice Wonderland</h1>
       </div>
-      <div className="flex justify-between w-[500px] font-light p-5 text-[#d6d6d6]">
+      <div className="flex text-lg justify-between w-[500px] font-light p-5 text-[#d6d6d6]">
         <p>265 Followers</p>
         <p>125 Following</p>
         <p>28 Recommendations</p>
