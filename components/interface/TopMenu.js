@@ -19,32 +19,32 @@ export default function TopMenu() {
     setAddedBtn(false);
     setOriginalsBtn(false);
     setTrendingBtn(true);
-    // router.push(`/?genre=fetchTrending`); use push state so page doesn't refresh after router push. Applied to all buttons in menu
-    window.history.pushState(null, "Trending", "/?top=fetchTrending");
+    router.push(`/?top=fetchTrending`);
+    // window.history.pushState(null, "Trending", "/?top=fetchTrending");
   };
   const popularHandleClick = () => {
     setPopularBtn(true);
     setAddedBtn(false);
     setOriginalsBtn(false);
     setTrendingBtn(false);
-    // router.push(`/?genre=fetchTopRated`);
-    window.history.pushState(null, "Most Popular", "/?top=fetchTopRated");
+    router.push(`/?top=fetchTopRated`);
+    // window.history.pushState(null, "Most Popular", "/?top=fetchTopRated");
   };
   const addedHandleclick = () => {
     setPopularBtn(false);
     setAddedBtn(true);
     setOriginalsBtn(false);
     setTrendingBtn(false);
-    // router.push(`/?genre=fetchLatest`);
-    window.history.pushState(null, "Recently Added", "/?top=fetchLatest");
+    router.push(`/?top=fetchLatest`);
+    // window.history.pushState(null, "Recently Added", "/?top=fetchLatest");
   };
   const originalsHandleclick = () => {
     setPopularBtn(false);
     setAddedBtn(false);
     setOriginalsBtn(true);
     setTrendingBtn(false);
-    // router.push(`/?genre=fetchNetflixOriginals`);
-    window.history.pushState(null, "Originals", "/?top=fetchNetflixOriginals");
+    router.push(`/?top=fetchNetflixOriginals`);
+    // window.history.pushState(null, "Originals", "/?top=fetchNetflixOriginals");
   };
 
   return (

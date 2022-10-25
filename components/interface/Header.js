@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     // if scrolled change the background color of the header
-    <header className={`${isScrolled && " z-[100]"}`}>
+    <header className={`${isScrolled && " opacity-0 z-[100]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
@@ -56,7 +56,6 @@ export default function Header() {
             src="https://occ-0-1190-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
             alt=""
             className="cursor-pointer rounded"
-            onClick={logout}
           />
         </Link>
       </div>
