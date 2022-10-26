@@ -7,7 +7,7 @@ import requests from "../../utils/requestsTop";
 import { useRouter } from "next/router";
 
 export default function TopMenu() {
-  const [trendingBtn, setTrendingBtn] = useState(false);
+  const [trendingBtn, setTrendingBtn] = useState(true);
   const [popularBtn, setPopularBtn] = useState(false);
   const [addedBtn, setAddedBtn] = useState(false);
   const [originalsBtn, setOriginalsBtn] = useState(false);
@@ -49,11 +49,11 @@ export default function TopMenu() {
 
   return (
     <div className="mt-10">
-      <ul className="flex justify-between  border-y border-gray-500  text-lg   text-center ">
+      <ul className="flex justify-between  border-y border-gray-500  text-xl   text-center ">
         <li
-          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full text-[red]  duration-200 transform hover:scale-110 font-semibold py-4 gap-x-2 cursor-pointer"
           style={{
-            color: trendingBtn ? "red" : "",
+            color: trendingBtn ? "red" : "white",
           }}
           onClick={trendingHandleClick}
         >
@@ -61,7 +61,7 @@ export default function TopMenu() {
           <BiTrendingUp className="text-4xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold  py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110 font-semibold  py-4 gap-x-2 cursor-pointer"
           style={{
             color: popularBtn ? "red" : "",
           }}
@@ -71,7 +71,7 @@ export default function TopMenu() {
           <GoFlame className="text-3xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold  py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110 font-semibold  py-4 gap-x-2 cursor-pointer"
           style={{
             color: addedBtn ? "red" : "",
           }}
@@ -80,7 +80,7 @@ export default function TopMenu() {
           {requests.fetchLatest.title} <VscDiffAdded className="text-3xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full  hover:text-[red] font-semibold  py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110  font-semibold  py-4 gap-x-2 cursor-pointer"
           style={{
             color: originalsBtn ? "red" : "",
           }}
