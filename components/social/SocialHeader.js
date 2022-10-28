@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function SocialHeader() {
@@ -35,9 +36,12 @@ export default function SocialHeader() {
         </div>
       </div>
       <div className="mt-8 space-x-6">
-        <button className="py-2 px-8 text-[#111] font-bold rounded-md bg-[#d6d6d6]">
-          Followers
-        </button>
+        <Link href="/following">
+          <button className="py-2 px-10 text-[#111] font-bold rounded-md bg-[#d6d6d6]">
+            Friends
+          </button>
+        </Link>
+
         <button className="py-2 px-8 text-[#111] font-bold rounded-md bg-[#d6d6d6]">
           Edit Profile
         </button>
