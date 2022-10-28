@@ -92,17 +92,19 @@ export default function Header() {
             <h1 className="text-xl ">Social Profile</h1>
           </div>
         </Link>
-        <div
-          className={`cursor-pointer flex items-center space-x-1 ${
-            isScrolled && "hidden"
-          }`}
-        >
-          <img
-            src="https://earthlette.com.au/wp-content/uploads/2016/10/Jem-final-profile-pic-circle2.png"
-            alt=""
-            className="cursor-pointer  bg-white rounded-full w-12"
-          />
-        </div>
+        <Link href="/account">
+          <div
+            className={`cursor-pointer flex items-center space-x-1 ${
+              isScrolled && "hidden"
+            }`}
+          >
+            <img
+              src="https://earthlette.com.au/wp-content/uploads/2016/10/Jem-final-profile-pic-circle2.png"
+              alt=""
+              className="cursor-pointer  bg-white rounded-full w-12"
+            />
+          </div>
+        </Link>
       </header>
 
       <div
