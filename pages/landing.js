@@ -14,7 +14,7 @@ export default function login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Image
-        src="/../public/bg.jpg"
+        src="/bg.jpg"
         layout="fill"
         className="-z-10 absolute top-0 left-0"
         objectFit="cover"
@@ -36,15 +36,27 @@ export default function login() {
         </Link>
       </div>
 
-      <div className="text-center space-y-10 px-10 text-[#d6d6d6]">
+      <div className="flex flex-col items-center space-y-10 px-10 text-[#d6d6d6]">
         <h1 className="font-bold text-5xl md:text-6xl md:tracking-widest">
-          NETFLIX & CHILL?
+          WELCOME TO THE NEW
         </h1>
+        <div className="w-[500px]">
+          <Link href="/">
+            <Image
+              src="/netflixsocial.png"
+              alt=""
+              width={598}
+              height={280}
+              layout="responsive"
+            />
+          </Link>
+        </div>
         <p className="text-xl md:text-2xl">
-          No, seriously. Watch anywhere and cancel anytime.
+          Watch your favorite movies, TV shows, and documentaries with your
+          friends anywhere and at anytime.
         </p>
         <Link href="/signup">
-          <button className="bg-[#E6020C] px-8 py-4 font-bold cursor-pointer transition duration-100 transform hover:scale-105">
+          <button className="bg-white text-black px-8 py-4 font-bold cursor-pointer transition duration-100 transform hover:scale-105">
             Sign Up Today!
           </button>
         </Link>

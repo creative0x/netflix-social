@@ -34,19 +34,22 @@ export default function Login() {
         onSubmit={handleSubmit(onSubmit)}
         className="text-center flex flex-col items-center"
       >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
-          alt=""
-          width={150}
-          height={200}
-          className=""
-        />
-        <h3 className="font-[500] my-10 md:text-xl md:my-12">Sign in</h3>
+        <div className="w-[250px]">
+          <Image
+            src="/netflixsocial.png"
+            alt=""
+            width={598}
+            height={280}
+            className=""
+          />
+        </div>
+        <h3 className="font-[500] mt-10 md:text-2xl md:mt-12">Welcome back!</h3>
+        <h4 className="mb-10">Please sign in.</h4>
         <label>
           <input
             type="email"
             placeholder="Email"
-            className="bg-transparent border border-[#E6020C]/60 rounded-full py-1.5 px-8 text-sm md:text-lg"
+            className="bg-transparent border border-white/80 rounded-full py-1.5 px-8 text-sm md:text-lg"
             {...register("email", { required: true })}
           />
           {errors.email && (
@@ -59,7 +62,7 @@ export default function Login() {
           <input
             type="password"
             placeholder="Password"
-            className="bg-transparent border border-[#E6020C]/60 rounded-full py-1.5 px-8 text-sm mt-4 md:text-lg md:mt-4"
+            className="bg-transparent border border-white/80 rounded-full py-1.5 px-8 text-sm mt-4 md:text-lg md:mt-4"
             {...register("password", { required: true })}
           />
           {errors.password && (
@@ -71,7 +74,7 @@ export default function Login() {
 
         <button
           onClick={() => setLogin(true)}
-          className="bg-[#E6020C] px-[85px] md:px-[110px] py-1 mt-8 text-sm  md:mt-12 font-[500] rounded-full md:text-lg"
+          className="bg-white text-black px-[85px] md:px-[110px] py-1 mt-8 text-sm  md:mt-12 font-[500] rounded-full md:text-lg"
           type="submit"
         >
           Sign in
@@ -79,13 +82,18 @@ export default function Login() {
         <p className="font-light mt-4 md:text-lg">I forgot my password</p>
 
         <Link href="/signup">
-          <button
+          <p className="mt-10">
+            Don't have an account yet?{" "}
+            <span className="underline cursor-pointer">Sign up!</span>
+          </p>
+        </Link>
+
+        {/* <button
             onClick={() => setLogin(false)}
-            className="bg-[#E6020C] px-[85px] py-1 mt-16 text-sm font-[500] rounded-full md:text-lg md:px-[105px] md:mb-24"
+            className="bg-[#E6020C] px-[85px] py-1 mt-3 text-sm font-[500] rounded-full md:text-lg md:px-[105px] md:mb-24"
           >
             Sign up
-          </button>
-        </Link>
+          </button> */}
       </form>
     </div>
   );
