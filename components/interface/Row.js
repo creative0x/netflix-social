@@ -21,7 +21,7 @@ export default function Row({ title, topResults }) {
 
   return (
     <div className="">
-      <div className="group relative p-10 ">
+      <div className="group relative p-10 md:p-5 ">
         <ChevronLeftIcon
           onClick={() => handleClick("left")}
           className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
@@ -30,7 +30,7 @@ export default function Row({ title, topResults }) {
         />
         <div
           ref={rowRef}
-          className="flex items-center space-x-0.5 overflow-x-scroll md:space-x-8 scrollbar-hide "
+          className="flex items-center space-x-3 overflow-x-scroll md:space-x-5 scrollbar-hide "
         >
           {topResults.map((result) => (
             <TopThumbnail key={result.id} movie={result} />

@@ -11,7 +11,7 @@ export default function WatchLater() {
   const watchLaterList = useList(user?.uid);
   return (
     <div className="mt-10">
-      <h1 className="font-medium text-3xl ml-12 -mb-10 ">Watch Later</h1>
+      <h1 className="font-medium text-2xl ml-8 -mb-4 ">Watch Later</h1>
       {watchLaterList.length > 0 && (
         <Row title="Watch Later" topResults={watchLaterList} />
       )}

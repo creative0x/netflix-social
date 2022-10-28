@@ -16,7 +16,6 @@ import useSubscription from "../hooks/useSubscription";
 import TopMenu from "../components/interface/TopMenu";
 import TopRequests from "../utils/requestsTop";
 import Row from "../components/interface/Row";
-import useList from "../hooks/useList";
 
 export default function Home({ trendingNow, results, products, topResults }) {
   const { loading, user } = useAuth();
@@ -36,6 +35,7 @@ export default function Home({ trendingNow, results, products, topResults }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+
       <main className="relative  pb-4  pt-[6rem]">
         <Banner trendingNow={trendingNow} />
         <section>

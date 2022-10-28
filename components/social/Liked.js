@@ -11,7 +11,7 @@ export default function Liked() {
   const likedList = useLikedList(user?.uid);
   return (
     <div className="">
-      <h1 className="font-medium text-3xl ml-12 -mb-10 ">Liked</h1>
+      <h1 className="font-medium text-2xl ml-8 -mb-4  ">Liked</h1>
       {likedList.length > 0 && (
         <Row title="Watch Later" topResults={likedList} />
       )}

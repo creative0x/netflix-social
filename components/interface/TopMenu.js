@@ -48,46 +48,47 @@ export default function TopMenu() {
   };
 
   return (
-    <div className="mt-10">
-      <ul className="flex justify-between  border-y border-gray-500  text-xl   text-center ">
+    <div className="mt-10 overflow-x-scroll scrollbar-hide">
+      <ul className="px-2 md:px-0 flex justify-between  border-y border-gray-500   text-lg md:text-xl   text-center overflow-x-scroll scrollbar-hide ">
         <li
-          className=" flex items-center  justify-center w-full text-[red]  duration-200 transform hover:scale-110 font-semibold py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full text-[red]  duration-200 transform hover:scale-110 font-semibold py-4 gap-x-1 md:gap-x-2 cursor-pointer"
           style={{
             color: trendingBtn ? "red" : "white",
           }}
           onClick={trendingHandleClick}
         >
           {requests.fetchTrending.title}
-          <BiTrendingUp className="text-4xl" />
+          <BiTrendingUp className="invisible md:visible text-sm md:text-4xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110 font-semibold  py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110 font-semibold  py-4 gap-x-1 md:gap-x-2 cursor-pointer"
           style={{
             color: popularBtn ? "red" : "",
           }}
           onClick={popularHandleClick}
         >
           {requests.fetchTopRated.title}
-          <GoFlame className="text-3xl" />
+          <GoFlame className="invisible md:visible text-sm md:text-3xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110 font-semibold  py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110 font-semibold  py-4 gap-x-1 md:gap-x-2 cursor-pointer"
           style={{
             color: addedBtn ? "red" : "",
           }}
           onClick={addedHandleclick}
         >
-          {requests.fetchLatest.title} <VscDiffAdded className="text-3xl" />
+          {requests.fetchLatest.title}{" "}
+          <VscDiffAdded className="invisible md:visible text-sm md:text-3xl" />
         </li>
         <li
-          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110  font-semibold  py-4 gap-x-2 cursor-pointer"
+          className=" flex items-center  justify-center w-full   duration-200 transform hover:scale-110  font-semibold  py-4 gap-x-1 md:gap-x-2 cursor-pointer"
           style={{
             color: originalsBtn ? "red" : "",
           }}
           onClick={originalsHandleclick}
         >
           {requests.fetchNetflixOriginals.title}{" "}
-          <SiNetflix className="text-3xl" />
+          <SiNetflix className="invisible md:visible text-sm md:text-3xl" />
         </li>
       </ul>
     </div>

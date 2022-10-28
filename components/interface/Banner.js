@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaPlay, FaUserFriends } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { movieModalState, movieState } from "../../atoms/modalAtom";
+import Link from "next/link";
 
 export default function Banner({ trendingNow }) {
   const [movie, setMovie] = useState(null);
@@ -26,7 +27,7 @@ export default function Banner({ trendingNow }) {
         />
       </div>
 
-      <div className="ml-20 space-y-5">
+      <div className="mx-10 md:ml-20 space-y-5">
         <h1 className="text-2xl font-bold md:text-4xl lg:text-6xl text-shadow-md ">
           {movie?.title || movie?.name || movie?.orginal_name}
         </h1>
@@ -35,7 +36,7 @@ export default function Banner({ trendingNow }) {
         </p>
       </div>
 
-      <div className="flex ml-20 space-x-6 ">
+      <div className="flex ml-10 md:ml-20 space-x-6 ">
         <button
           onClick={() => {
             setCurrentMovie(movie);
@@ -46,9 +47,11 @@ export default function Banner({ trendingNow }) {
           <FaPlay className="h-3 w-3 md:h-4 md:w-4" />
           Watch
         </button>
-        <button className="bannerBtn bg-[#111] border border-gray-800 transition duration-100 transform hover:scale-105">
-          <FaUserFriends className="h-3 w-3 md:h-4 md:w-4" /> Watch w/ Friends
-        </button>
+        <Link href="/stream">
+          <button className="bannerBtn bg-blue-600  transition duration-100 transform hover:scale-105">
+            <FaUserFriends className="h-3 w-3 md:h-4 md:w-4" /> Watch w/ Friends
+          </button>
+        </Link>
       </div>
     </div>
   );

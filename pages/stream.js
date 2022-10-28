@@ -15,6 +15,7 @@ import {
 
 import "stream-chat-react/dist/css/index.css";
 import styles from "../styles/Home.module.css";
+import Header from "../components/interface/Header";
 
 export default function Stream() {
   const [user, setUser] = useState({});
@@ -139,7 +140,7 @@ export default function Stream() {
   }
 
   return (
-    <div className="">
+    <div className={styles.container}>
       <Head>
         <title>Stream &amp; Chat!</title>
         <meta
@@ -152,11 +153,21 @@ export default function Stream() {
       <main className={styles.main}>
         {!user?.id && (
           <>
-            <h1>Stream</h1>
+            <div className="w-[500px]">
+              <Image
+                src="/netflixsocial.png"
+                layout="responsive"
+                height={250}
+                width={500}
+              />
+            </div>
 
-            <p>To get started, enter your username or alias:</p>
+            <p className="text-xl py-10">
+              To get started, enter your username or nickname below:
+            </p>
 
             <form
+              className="flex flex-col items-center space-y-5 "
               onSubmit={(e) => {
                 e.preventDefault();
                 const id = Array.from(e.currentTarget.elements).find(
@@ -165,29 +176,52 @@ export default function Stream() {
                 setUser({ id });
               }}
             >
-              <input type="text" name="userId" />
-              <button>Join</button>
+              <input
+                type="text"
+                name="userId"
+                className="bg-[#d6d6d6] rounded-sm text-xl text-black"
+              />
+              <button className="text-lg font-bold bg-white text-black px-10 py-1 ">
+                Join
+              </button>
             </form>
           </>
         )}
 
         {user?.id && (
           <>
-            <div className="flex justify-between">
-              <div className="">
+            <div className={styles.stream}>
+              <div className={styles.streamVideo}>
                 <YouTube
                   ref={videoRef}
                   videoId="aYZRRyukuIw"
                   opts={{
+                    height: "900",
+                    width: "1500",
                     playerVars: {
                       controls: 0,
                     },
                   }}
                 />
-                <p>
-                  <button onClick={onStartVideo}>Start</button>
-                  <button onClick={onStopVideo}>Stop</button>
-                  <button onClick={onReplayVideo}>Replay</button>
+                <p className="space-x-2 p-5">
+                  <button
+                    className="bg-[white] rounded-md font-bold text-black px-5 py-1"
+                    onClick={onStartVideo}
+                  >
+                    Start
+                  </button>
+                  <button
+                    className="bg-[white] rounded-md font-bold text-black px-5 py-1"
+                    onClick={onStopVideo}
+                  >
+                    Stop
+                  </button>
+                  <button
+                    className="bg-[white] rounded-md font-bold text-black px-5 py-1"
+                    onClick={onReplayVideo}
+                  >
+                    Replay
+                  </button>
                 </p>
               </div>
 

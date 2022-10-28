@@ -2,9 +2,15 @@ import React, { useEffect, useState } from "react";
 import { BellIcon, SearchIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import useAuth from "../../hooks/useAuth";
-
+import { RiTv2Fill } from "react-icons/ri";
+import { MdLocalMovies } from "react-icons/md";
+import { AiFillStar } from "react-icons/ai";
+import { RiUser5Fill } from "react-icons/ri";
+import { HiMenuAlt3 } from "react-icons/hi";
+import Image from "next/image";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuIsClicked, setMenuIsClicked] = useState(false);
   const { logout } = useAuth();
 
   useEffect(() => {
@@ -26,43 +32,89 @@ export default function Header() {
     };
   }, []);
 
+  const menuClicked = () => {
+    setIsScrolled(false);
+  };
+
   return (
+    // className={` ${isScrolled && "bg-black/20  z-[100]"}`}>  example of how to apply the function with styling
     // if scrolled change the background color of the header
-    <header className={`${isScrolled && " opacity-0 z-[100]"}`}>
-      <div className="flex items-center space-x-2 md:space-x-10">
-        <Link href="/">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
-            alt=""
-            width={100}
-            height={100}
-            className="cursor-pointer"
-          />
-        </Link>
-
-        {/* <ul className="hidden space-x-4 md:flex">
-          <li className="headerLink">Home</li>
-          <li className="headerLink">TV Shows</li>
-          <li className="headerLink">Movies</li>
-          <li className="headerLink">New & Popular</li>
-          <li className="headerLink">My List</li>
-          <Link href="/social">
-            <li className="headerLink">*NEW* Social</li>
+    <div>
+      <header
+        className={`bg-black/80 fixed  ${isScrolled && "invisible"} ${
+          menuIsClicked && "bg-black/80"
+        }`}
+      >
+        <div className="w-[125px]">
+          <Link href="/">
+            <Image
+              src="/netflixsocial.png"
+              alt=""
+              width={598}
+              height={280}
+              layout="responsive"
+              className={`text-white cursor-pointer ${isScrolled && "hidden "}`}
+            />
           </Link>
-        </ul> */}
-      </div>
+        </div>
 
-      <div className="flex items-center space-x-4 text-sm">
-        <SearchIcon className="text-white hidden sm:inline w-6 h-6 " />
-        <BellIcon className="h-6 w-6 text-white" />
-        <Link href="/account">
-          <img
-            src="https://occ-0-1190-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
-            alt=""
-            className="cursor-pointer rounded"
-          />
+        <div
+          className={`cursor-pointer flex items-center space-x-2 transition duration-200 ease-in-out hover:scale-110 ${
+            isScrolled && "hidden"
+          }`}
+        >
+          <RiTv2Fill className="text-2xl" />
+          <h1 className="text-xl ">TV Shows</h1>
+        </div>
+        <div
+          className={`cursor-pointer flex items-center space-x-2 transition duration-200 ease-in-out hover:scale-110 ${
+            isScrolled && "hidden"
+          }`}
+        >
+          <MdLocalMovies className="text-2xl" />
+          <h1 className="text-xl ">Movies</h1>
+        </div>
+        <div
+          className={`cursor-pointer flex items-center space-x-2 transition duration-200 ease-in-out hover:scale-110 ${
+            isScrolled && "hidden"
+          }`}
+        >
+          <AiFillStar className="text-2xl" />
+          <h1 className="text-xl ">New & Popular</h1>
+        </div>
+        <Link href="/profile">
+          <div
+            className={`cursor-pointer flex items-center space-x-2 transition duration-200 ease-in-out hover:scale-110 ${
+              isScrolled && "hidden"
+            }`}
+          >
+            <RiUser5Fill className="text-2xl" />
+            <h1 className="text-xl ">Social Profile</h1>
+          </div>
         </Link>
+        <div
+          className={`cursor-pointer flex items-center space-x-1 ${
+            isScrolled && "hidden"
+          }`}
+        >
+          <img
+            src="https://earthlette.com.au/wp-content/uploads/2016/10/Jem-final-profile-pic-circle2.png"
+            alt=""
+            className="cursor-pointer  bg-white rounded-full w-12"
+          />
+        </div>
+      </header>
+
+      <div
+        onClick={menuClicked}
+        className={
+          isScrolled
+            ? "bg-[black]/80 z-50 border border-white fixed right-10 top-5 rounded-full p-5 cursor-pointer transition duration-200 ease-in-out hover:scale-110"
+            : "hidden"
+        }
+      >
+        <HiMenuAlt3 className="text-3xl text-[white] " />
       </div>
-    </header>
+    </div>
   );
 }
