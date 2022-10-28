@@ -83,7 +83,7 @@ export default function Login() {
 
         <Link href="/signup">
           <p className="mt-10">
-            Don't have an account yet?{" "}
+            Don&apos;t have an account yet?{" "}
             <span className="underline cursor-pointer">Sign up!</span>
           </p>
         </Link>
