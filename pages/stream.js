@@ -45,7 +45,8 @@ export default function Stream() {
         {
           id: user.id,
           name: user.id,
-          image: "https://i.imgur.com/fR9Jz14.png",
+          image:
+            "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png",
         },
         token
       );
