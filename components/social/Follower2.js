@@ -10,7 +10,7 @@ export default function Follower({ documentaries }) {
           <img
             src="https://www.pngkey.com/png/full/934-9343148_2p2a2179-circle-girl.png"
             alt=""
-            className="cursor-pointer rounded w-20"
+            className="cursor-pointer rounded-full bg-white w-20"
           />
           <h2 className="text-3xl">Samantha Jenkins</h2>
         </div>
@@ -18,7 +18,7 @@ export default function Follower({ documentaries }) {
       </div>
 
       <div className="mt-10">
-        <h3 className="text-2xl -mb-10 mt-5 ml-10">Recently Viewed</h3>
+        <h3 className="text-2xl -mb-8 mt-5 ml-8">Recently Viewed</h3>
         <Row title="Recently Viewed" topResults={documentaries} />
       </div>
     </div>

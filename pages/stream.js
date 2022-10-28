@@ -51,7 +51,7 @@ export default function Stream() {
       );
 
       const channel = client.channel("livestream", "mylivestream", {
-        name: "My Live Stream",
+        name: "Netflix Social",
       });
 
       setChannel(channel);
@@ -117,7 +117,7 @@ export default function Stream() {
       "livestream",
       `mylivestream-replay-${Date.now()}`,
       {
-        name: "My Live Stream",
+        name: "Netflix Social",
       }
     );
 
@@ -143,10 +143,7 @@ export default function Stream() {
     <div className={styles.container}>
       <Head>
         <title>Stream &amp; Chat!</title>
-        <meta
-          name="description"
-          content="Watch some youtube and chat with your friends!"
-        />
+        <meta name="description" content="Watch a movie with your friends!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
