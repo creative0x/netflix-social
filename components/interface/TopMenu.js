@@ -14,7 +14,8 @@ export default function TopMenu() {
 
   const router = useRouter();
 
-  const trendingHandleClick = () => {
+  const trendingHandleClick = (e) => {
+    e.preventDefault();
     setPopularBtn(false);
     setAddedBtn(false);
     setOriginalsBtn(false);
@@ -55,7 +56,8 @@ export default function TopMenu() {
           style={{
             color: trendingBtn ? "red" : "white",
           }}
-          onClick={trendingHandleClick}
+          // onClick={trendingHandleClick}
+          onClick={trendingHandleClick(e)}
         >
           {requests.fetchTrending.title}
           <BiTrendingUp className="invisible md:visible text-sm md:text-4xl" />

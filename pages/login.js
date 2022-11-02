@@ -43,13 +43,15 @@ export default function Login() {
             className=""
           />
         </div>
-        <h3 className="font-[500] mt-10 md:text-2xl md:mt-12">Welcome back!</h3>
-        <h4 className="mb-10">Please sign in.</h4>
+        <h3 className="font-[500] mt-10 md:text-2xl md:mt-12 ">
+          Welcome back!
+        </h3>
+        <h4 className="mb-10 ">Please sign in.</h4>
         <label>
           <input
             type="email"
             placeholder="Email"
-            className="bg-transparent border border-white/80 rounded-full py-1.5 px-8 text-sm md:text-lg"
+            className="bg-transparent border border-[red]/80 text-[red] rounded-full py-1.5 px-8 text-sm md:text-lg"
             {...register("email", { required: true })}
           />
           {errors.email && (
@@ -62,7 +64,7 @@ export default function Login() {
           <input
             type="password"
             placeholder="Password"
-            className="bg-transparent border border-white/80 rounded-full py-1.5 px-8 text-sm mt-4 md:text-lg md:mt-4"
+            className="bg-transparent border border-[red]/80 rounded-full py-1.5 px-8 text-sm mt-4 md:text-lg md:mt-4"
             {...register("password", { required: true })}
           />
           {errors.password && (
@@ -74,7 +76,7 @@ export default function Login() {
 
         <button
           onClick={() => setLogin(true)}
-          className="bg-white text-black px-[85px] md:px-[110px] py-1 mt-8 text-sm  md:mt-12 font-[500] rounded-full md:text-lg"
+          className="bg-[red] text-white px-[85px] md:px-[110px] py-1 mt-8 text-sm  md:mt-12 font-[500] rounded-full md:text-lg"
           type="submit"
         >
           Sign in
@@ -82,7 +84,7 @@ export default function Login() {
         <p className="font-light mt-4 md:text-lg">I forgot my password</p>
 
         <Link href="/signup">
-          <p className="mt-10">
+          <p className="mt-10 font-medium">
             Don&apos;t have an account yet?{" "}
             <span className="underline cursor-pointer">Sign up!</span>
           </p>
