@@ -35,7 +35,7 @@ export default function Plans({ products }) {
               width={598}
               height={280}
               layout="responsive"
-              className={`text-white cursor-pointer ${isScrolled && "hidden "}`}
+              className={`text-white cursor-pointer`}
             />
           </Link>
         </div>
