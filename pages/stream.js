@@ -189,7 +189,7 @@ export default function Stream() {
         {user?.id && (
           <>
             <div className={styles.stream}>
-              <div className={styles.streamVideo}>
+              <div className="hidden md:flex items-center justify-center flex-col">
                 <YouTube
                   ref={videoRef}
                   videoId="X0tOpBuYasI"
