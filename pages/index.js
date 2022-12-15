@@ -21,11 +21,11 @@ export default function Home({ trendingNow, results, products, topResults }) {
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(movieModalState);
   // sets the subscription
-  const subscription = useSubscription(user);
+  // const subscription = useSubscription(user);
 
-  // If user does not have a subscription show them the plans
-  if (loading || subscription === null) return null;
-  if (!subscription) return <Plans products={products} />;
+  // // If user does not have a subscription show them the plans
+  // if (loading || subscription === null) return null;
+  // if (!subscription) return <Plans products={products} />;
 
   return (
     <div className="relative h-screen  bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">

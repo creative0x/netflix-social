@@ -64,7 +64,7 @@ export default function Header() {
           }`}
         >
           <RiTv2Fill className="text-2xl" />
-          <h1 className="text-xl ">TV Shows</h1>
+          <h1 className="text-xl hidden lg:flex ">TV Shows</h1>
         </div>
         <div
           className={`cursor-pointer flex items-center space-x-2 transition duration-200 ease-in-out hover:scale-110 ${
@@ -72,7 +72,7 @@ export default function Header() {
           }`}
         >
           <MdLocalMovies className="text-2xl" />
-          <h1 className="text-xl ">Movies</h1>
+          <h1 className="text-xl hidden lg:flex ">Movies</h1>
         </div>
         <div
           className={`cursor-pointer flex items-center space-x-2 transition duration-200 ease-in-out hover:scale-110 ${
@@ -80,7 +80,7 @@ export default function Header() {
           }`}
         >
           <AiFillStar className="text-2xl" />
-          <h1 className="text-xl ">New & Popular</h1>
+          <h1 className="text-xl hidden lg:flex ">New & Popular</h1>
         </div>
         <Link href="/profile">
           <div
@@ -89,7 +89,7 @@ export default function Header() {
             }`}
           >
             <RiUser5Fill className="text-2xl" />
-            <h1 className="text-xl ">Social Profile</h1>
+            <h1 className="text-xl hidden lg:flex ">Social Profile</h1>
           </div>
         </Link>
         <Link href="/account">
